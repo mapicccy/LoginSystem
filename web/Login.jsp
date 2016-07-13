@@ -17,7 +17,7 @@
         img.src = "com/guanjun/servlet/validation_code?" + Math.random();
     }
 
-    function chenLogin() {
+    function checkLogin() {
         var username = document.getElementById("username");
         if (username.value == "") {
             alert("必须输入用户名！");
@@ -50,7 +50,7 @@
     <font color="aqua">${requestScope.passwordError}</font>
     验证码：
     <input type="text" id="validation_code" name="validation_code">
-    <img src="/validation_codecode" id="img_validation_code">
+    <img src="/validation_code" id="img_validation_code">
     <font color="aqua">${requestScope.codeError}</font>
     <input type="button" value="刷新" onclick="refresh()">
     <input type="button" value="登录" onclick="checkLogin()">
