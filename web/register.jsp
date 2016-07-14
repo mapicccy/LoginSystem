@@ -57,9 +57,9 @@
         <span class="require">*</span> 用户名 ：
         <input type="text" id="username" name="username" size="30" maxlength="30"><br>
         <span class="require">*</span> 密码 ：
-        <input type="text" id="password" name="password" size="30" maxlength="30"><br>
+        <input type="password" id="password" name="password" size="30" maxlength="30"><br>
         <span class="require">*</span> 请再次输入密码 ：
-        <input type="text" id="repassword" name="repassword" size="30" maxlength="30"><br>
+        <input type="password" id="repassword" name="repassword" size="30" maxlength="30"><br>
         邮箱地址 ：
         <input type="text" id="email" name="email" size="30" maxlength="30"><br>
         <span class="require">*</span> 验证码 ：
@@ -67,7 +67,7 @@
         <img id="img_validation_code" src="/validation_code">
         <input type="button" value="刷新" onclick="refresh()"><br>
         <input type="button" value="注册" onclick="checkRegister()">
-        <input type="button" value="登录" name="login">
+        <input type="submit" value="登录" name="login">
     </form>
 </body>
 </html>
