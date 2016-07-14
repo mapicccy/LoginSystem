@@ -14,7 +14,7 @@
 <script type="text/javascript">
     function refresh() {
         var img = document.getElementById("img_validation_code");
-        img.src = "com/guanjun/servlet/validation_code?" + Math.random();
+        img.src = "/validation_code?" + Math.random();
     }
 
     function checkLogin() {
@@ -38,10 +38,10 @@
             validation_code.focus();
             return;
         }
-        register_form.submit();
+        login_form.submit();
     }
 </script>
-<form name="login_form" action="/scom/guanjun/servlet/login" method="post">
+<form name="login_form" action="/login" method="post">
     用户名：
     <input type="text" id="username" value="${requestScope.username}" name="username">
     <font color="aqua">${requestScope.userError}</font>
