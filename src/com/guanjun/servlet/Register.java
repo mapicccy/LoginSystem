@@ -21,10 +21,12 @@ public class Register extends DBServlet{
         }
         try {
             super.service(req, resp);
+            System.out.print("注册");
             userName = req.getParameter("username");
             String password = req.getParameter("password");
             String email = req.getParameter("email");
             String validationCode = req.getParameter("validation_code");
+            System.out.println(userName + " " + password + " " + email + " " + validationCode);
             if (userName == null || password == null || validationCode == null)
                 return;
             if (userName.equals("") || password.equals("") || validationCode.equals(""))
@@ -35,11 +37,13 @@ public class Register extends DBServlet{
                 return;
             email = (email == null) ? "" : email;
             String passwordMD5 = Encrypter.md5Encrypt(password);
+            System.out.println("注册");
             String sql = "insert into t_users (user_name, password_md5, email) values(?, ?, ?)";
             execSQL(sql, userName, passwordMD5, email);
             req.setAttribute("info", "用户注册成功！");
+            System.out.println("注册");
         }catch (Exception e){
-            System.out.println(e.getMessage());
+            System.out.println(e.getMessage() + "数据库插入出错");
             req.setAttribute("info", userName + "已经被占用！");
         }finally {
             RequestDispatcher rd = req.getRequestDispatcher("result.jsp");
