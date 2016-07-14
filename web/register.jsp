@@ -49,11 +49,11 @@
             validation_code.focus();
             return;
         }
-        register_form.submit();
+        document.getElementById("register_form").submit();
     }
 </script>
 <body>
-    <form name="register_form" action="/register" method="post">
+    <form name="register_form" id="register_form" action="/register" method="post">
         <span class="require">*</span> 用户名 ：
         <input type="text" id="username" name="username" size="30" maxlength="30"><br>
         <span class="require">*</span> 密码 ：
