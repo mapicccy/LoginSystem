@@ -38,10 +38,10 @@
             validation_code.focus();
             return;
         }
-        login_form.submit();
+        document.getElementById("login_form").submit();
     }
 </script>
-<form name="login_form" action="/login" method="post">
+<form name="login_form" id="login_form" action="/login" method="post">
     用户名：
     <input type="text" id="username" value="${requestScope.username}" name="username">
     <font color="aqua">${requestScope.userError}</font>
