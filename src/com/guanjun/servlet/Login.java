@@ -46,7 +46,7 @@ public class Login extends DBServlet{
                         page = "main.jsp";
                 }
             }catch (Exception e){
-                System.out.println(e.getMessage());
+                System.out.print(e.getMessage());
             }
         }catch (Exception e){
 
