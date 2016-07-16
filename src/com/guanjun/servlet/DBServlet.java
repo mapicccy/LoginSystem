@@ -41,6 +41,7 @@ public class DBServlet extends HttpServlet{
 
             //设置login.jsp需要的错误信息
             request.setAttribute("codeError", "验证码过期");
+            System.out.println("验证码过期");
             return false;
         }
         if (!validationCode.equalsIgnoreCase(validationCodeSession)){
@@ -49,6 +50,7 @@ public class DBServlet extends HttpServlet{
 
             //设置login.jsp需要的错误信息
             request.setAttribute("codeError", "验证码不正确");
+            System.out.println("验证码错误");
             return false;
         }
         return true;
@@ -58,11 +60,21 @@ public class DBServlet extends HttpServlet{
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
             System.out.println(conn + "conn建立数据库连接");
+            try {
+                Class.forName("com.mysql.jdbc.Driver");
+            }catch (Exception e){
+                System.out.println("数据库驱动加载失败");
+            }
             if (conn == null){
-                conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/webdb", "zhaoguanjun", "19911156");
-                Context ctx = new InitialContext();
-                DataSource ds = (DataSource) ctx.lookup("jdbc:mysql://localhost:3306/webdb");
-                conn = ds.getConnection();
+                System.out.println("1: ");
+                conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/webdb", "root", "19911156");
+                System.out.println("2: ");
+//                Context ctx = new InitialContext();
+//                DataSource ds = (DataSource) ctx.lookup("jdbc:mysql://localhost:3306/webdb");
+//                System.out.println("3: ");
+//                conn = ds.getConnection();
+//                System.out.println("4: ");
+
             }
             System.out.println(conn + "conn状态");
         }catch (Exception e){
